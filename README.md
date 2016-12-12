@@ -3,6 +3,8 @@ Core plugins for osTicket
 
 Core plugins for osTicket-1.8 and onward
 
+OAuth plugin modified with Poniverse auth support
+
 Installing
 ==========
 
