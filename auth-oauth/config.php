@@ -28,7 +28,7 @@ class OauthPluginConfig extends PluginConfig {
             ),
         ));
         return array(
-            'google' => new SectionBreakField(array(
+            /*'google' => new SectionBreakField(array(
                 'label' => $__('Google+ Authentication'),
             )),
             'g-client-id' => new TextboxField(array(
@@ -39,7 +39,20 @@ class OauthPluginConfig extends PluginConfig {
                 'label' => $__('Client Secret'),
                 'configuration' => array('size'=>60, 'length'=>100),
             )),
-            'g-enabled' => clone $modes,
+            'g-enabled' => clone $modes,*/
+
+            'poniverse' => new SectionBreakField(array(
+                'label' => $__('Poniverse Auth'),
+            )),
+            'poni-client-id' => new TextboxField(array(
+                'label' => $__('Client ID'),
+                'configuration' => array('size'=>60, 'length'=>100),
+            )),
+            'poni-client-secret' => new TextboxField(array(
+                'label' => $__('Client Secret'),
+                'configuration' => array('size'=>60, 'length'=>100),
+            )),
+            'poni-enabled' => clone $modes,
         );
     }
 }

@@ -9,7 +9,7 @@ class OauthAuthPlugin extends Plugin {
     function bootstrap() {
         $config = $this->getConfig();
 
-        # ----- Google Plus ---------------------
+        /*# ----- Google Plus ---------------------
         $google = $config->get('g-enabled');
         if (in_array($google, array('all', 'staff'))) {
             require_once('google.php');
@@ -20,6 +20,19 @@ class OauthAuthPlugin extends Plugin {
             require_once('google.php');
             UserAuthenticationBackend::register(
                 new GoogleClientAuthBackend($this->getConfig()));
+        }*/
+
+
+        $poni = $config->get('poni-enabled');
+        if (in_array($poni, array('all', 'staff'))) {
+            require_once('poniverse.php');
+            StaffAuthenticationBackend::register(
+                new PoniStaffAuthBackend($this->getConfig()));
+        }
+        if (in_array($poni, array('all', 'client'))) {
+            require_once('poniverse.php');
+            UserAuthenticationBackend::register(
+                new PoniClientAuthBackend($this->getConfig()));
         }
     }
 }
